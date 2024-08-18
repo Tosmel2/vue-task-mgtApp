@@ -1,0 +1,49 @@
+<template>
+  <div>
+    <input v-model="searchQuery" placeholder="Search tasks" />
+    <ul>
+      <task-item 
+        v-for="task in filteredTasks" 
+        :key="task.id" 
+        :task="task"
+        @edit="editTask"
+        @delete="deleteTask"
+        @toggle-complete="toggleComplete"
+      />
+    </ul>
+  </div>
+</template>
+
+<script>
+import TaskItem from './TaskItem.vue';
+
+export default {
+  components: { TaskItem },
+  data() {
+    return {
+      searchQuery: '',
+    };
+  },
+  props: {
+    tasks: Array,
+  },
+  computed: {
+    filteredTasks() {
+      return this.tasks.filter(task =>
+        task.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    },
+  },
+  methods: {
+    editTask(task) {
+      this.$emit('edit-task', task);
+    },
+    deleteTask(task) {
+      this.$emit('delete-task', task);
+    },
+    toggleComplete(task) {
+      this.$emit('toggle-complete', task);
+    },
+  },
+};
+</script>
