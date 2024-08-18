@@ -1,6 +1,9 @@
 <template>
   <div>
-    <input v-model="searchQuery" placeholder="Search tasks" />
+    <input v-model="searchQuery" 
+    placeholder="Search tasks"
+    class="w-full p-2 mb-4 border border-gray-300 rounded"
+     />
     <ul>
       <task-item 
         v-for="task in filteredTasks" 
