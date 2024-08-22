@@ -1,6 +1,6 @@
 <template>
-   <div class="min-h-screen bg-gray-100 min-w-full p-8">
-    <h1 class="text-3xl font-bold text-center text-blue-600 mb-8">Task Manager</h1>
+   <div class="min-w-full min-h-screen p-8 bg-gray-100">
+    <h1 class="mb-8 text-3xl font-bold text-center text-sky-600">Task Manager</h1>
     <task-actions 
       @add-task="showAddTaskModal"
       @clear-completed="clearCompletedTasks"

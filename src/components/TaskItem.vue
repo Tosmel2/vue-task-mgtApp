@@ -1,9 +1,9 @@
 <template>
-  <li :class="{ completed: task.completed }">
-    <span @click="$emit('toggle-complete', task)">{{ task.title }}</span>
-    <div>
-      <button @click="$emit('edit', task)">Edit</button>
-      <button @click="$emit('delete', task)">Delete</button>
+  <li :class="{ completed: task.completed }" class="justify-between gap-4 py-3 mb-4 border-b border-gray-300 md:flex md:items-center">
+    <div @click="$emit('toggle-complete', task)" class="mb-3 md:mb-0">{{ task.title }}</div>
+    <div class="flex gap-2">
+      <button class="p-2 text-white bg-blue-500 rounded" @click="$emit('edit', task)">Edit</button>
+      <button class="p-2 text-white bg-red-500 rounded" @click="$emit('delete', task)">Delete</button>
     </div>
   </li>
 </template>
@@ -29,7 +29,7 @@ export default {
   >
     <span 
       @click="$emit('toggle-complete', task)" 
-      class="cursor-pointer text-lg"
+      class="text-lg cursor-pointer"
     >
       {{ task.title }}
     </span>

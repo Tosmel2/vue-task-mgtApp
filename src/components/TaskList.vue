@@ -4,7 +4,7 @@
     placeholder="Search tasks"
     class="w-full p-2 mb-4 border border-gray-300 rounded"
      />
-    <ul>
+    <ul class="p-3 rounded shadow bg-slate-200">
       <task-item 
         v-for="task in filteredTasks" 
         :key="task.id" 
